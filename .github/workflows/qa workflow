@@ -1,0 +1,11 @@
+name: QA Caller
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/called_workflow.yml
+    with:
+      environment_name: 'QA'
+      message: 'I am for QA environment'
