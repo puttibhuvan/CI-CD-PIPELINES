@@ -1,0 +1,20 @@
+name: Called Workflow
+run-name: Called by ${{ inputs.environment_name }}
+on:  
+  workflow_call:    
+    inputs:      
+      environment_name:        
+        description: 'The environment name'        
+        required: true        
+        type: string      
+      message:        
+        description: 'The message to display'        
+        required: true        
+        type: string
+
+jobs:  
+  reusable_job:    
+    runs-on: ubuntu-latest    
+    steps:      
+      - name: Deploy to ${{ inputs.environment_name }}        
+        run: echo '${{ inputs.message }}
